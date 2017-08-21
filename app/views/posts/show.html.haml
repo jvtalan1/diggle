@@ -1,0 +1,5 @@
+#p= notice
+.col-sm-11.col-xs-12.content
+  %h5.text-center= @post.created_at.strftime('%b %d, %Y')
+  %div
+    = raw @post.body
