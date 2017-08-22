@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:edit, :show, :update, :delete]
 
   def index
-    @posts = Post.all
+    @posts = Post.where(id: current_user.id)
+    @users = User.all
   end
 
   def new
