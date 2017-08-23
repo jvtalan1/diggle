@@ -5,24 +5,31 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# db/seed.rb
 
 User.create(
   email: 'user@example.com',
   password: 'password'
 )
 
-10.times do
-  user = User.create(
-    :email => Faker::Internet.email,
-    :password => 'password'
+10.times do |x|
+  name = Faker::HarryPotter.character
+  domain = Faker::Internet.domain_name
+  User.create(
+    full_name: name,
+    username: name.strip.downcase,
+    phone_number: '0999-99999' + x.to_s,
+    location: Faker::HarryPotter.location,
+    email: name.strip.downcase + '@' + domain,
+    password: 'password'
   )
 end
 
 users = User.all
 users.each do |user|
   Post.create(
-    :body => Faker::Lorem.sentence(1),
-    :user_id => user.id
+    body: Faker::HarryPotter.quote,
+    user_id: user.id
   )
 end
 

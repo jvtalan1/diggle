@@ -1,0 +1,30 @@
+#main-nav {
+  color: #eee;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  background: #1b6685;
+  border-radius: 0;
+  a:focus {
+    outline: none;
+  }
+  .navbar-nav {
+    float: right;
+    letter-spacing: 1px;
+    list-style: none;
+    li.nav-item {
+      a.nav-link {
+        margin: 1em;
+        color: white;
+        &:hover {
+          color: #eee;
+          outline: none;
+        }
+        &:active,
+        &:focus {
+          color: white;
+        }
+      }
+    }
+  }
+}
