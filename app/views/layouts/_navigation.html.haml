@@ -1,10 +1,5 @@
 %nav.navbar.navbar-expand-lg.navbar-light.fixed-top#main-nav
   .container
-    .col-md-4.col-md-offset-2
-      - if user_signed_in? && current_user.full_name.present?
-        %h2 Welcome #{current_user.full_name.split(' ')[0]}
-      - elsif user_signed_in?
-        %h2 Welcome!
     .collapse.navbar-collapse#navbar-responsive
       %ul.navbar-nav
         %li.nav-item
