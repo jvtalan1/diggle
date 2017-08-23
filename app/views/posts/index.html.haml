@@ -1,19 +1,13 @@
 .container
-  .col-sm-10.col-sm-offset-1.col-xs-12
-    - @users.each do |user|
-      .col-xs-12
-        %div
-          = user.email
-          - if current_user.following?(user)
-            = render 'relationships/unfollow', user: user
-          - else
-            = render 'relationships/follow', user: user
-  .col-sm-10.col-sm-offset-1.col-xs-12
-  .col-sm-10.col-sm-offset-1.col-xs-12.content
+  .col-sm-2.col-sm-offset-1.col-xs-2
+  .col-sm-5.col-xs-6.content
+    = render 'posts/form' 
     - @posts.each do |post|
       .col-xs-12
         .text-center
           %h6= post.created_at.strftime('%b %d, %Y')
         %div
           = raw(post.body)
-  = link_to 'Create new post', new_post_path
+  .col-sm-4.col-xs-12
+    - @users.each do |user|
+      = render 'relationships/follow', user: user
