@@ -13,5 +13,6 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :relationships, only: [:create, :destroy]
+  get '/pages/:page' => 'pages#show'
 
 end
