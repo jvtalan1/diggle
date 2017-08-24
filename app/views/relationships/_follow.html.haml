@@ -1,7 +1,7 @@
 = form_for(current_user.active_relationships.build, remote: true) do |f|
   .follow-boxes
-    .users-profile-pic
-      = image_tag(user.picture.url, alt: 'Profile Pic') if user.picture?
+    .users-profile-pic-con
+      = image_tag(user.picture.url, class: 'users-profile-pic',  alt: 'Profile Pic') if user.picture?
     %div
       = user.full_name
       %span= '@' + user.username
