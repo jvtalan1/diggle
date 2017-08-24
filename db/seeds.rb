@@ -20,7 +20,8 @@ User.create!(
   phone_number: '0999-999990',
   location: 'Philippines',
   email: 'user@example.com',
-  password: 'password'
+  password: 'password',
+  picture: File.open(File.join(Rails.root, 'app/assets/images/default_profile.png'))
 )
 
 20.times do |x|
@@ -32,7 +33,8 @@ User.create!(
     phone_number: '0999-99999' + x.to_s,
     location: Faker::Address.country,
     email: name.gsub(/\s+/, '').downcase + x.to_s + '@' + domain,
-    password: 'password'
+    password: 'password',
+    picture: File.open(File.join(Rails.root, 'app/assets/images/default_profile.png'))
   )
   x = x + 1
 end

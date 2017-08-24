@@ -1,5 +1,18 @@
 .container
-  .col-sm-2.col-sm-offset-1.col-xs-2
+  .col-sm-2.col-xs-2
+    .user-profile-pic
+      = image_tag(current_user.picture.url, alt: 'Profile Pic') if current_user.picture?
+    .user-name.text-center
+      = current_user.full_name
+      %br
+      = current_user.username
+    .user-statistics
+      %h6 Followers
+      = @followers
+      %h6 Following
+      = @following
+      %h6 Diggles
+      = @posts_count
   .col-sm-5.col-xs-6.content
     = render 'posts/form' 
     - @posts.each do |post|
@@ -8,6 +21,6 @@
           %h6= post.created_at.strftime('%b %d, %Y')
         %div
           = raw(post.body)
-  .col-sm-4.col-xs-12
+  .col-sm-4.col-xs-12.users-follow-con
     - @users.each do |user|
       = render 'relationships/follow', user: user
