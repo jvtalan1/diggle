@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    @posts = Post.where("user_id IN (?) OR user_id IN (?)", current_user.following.ids, current_user.id).order('created_at DESC')
+    @posts = Post.joins(:user).where("user_id IN (?) OR user_id IN (?)", current_user.following.ids, current_user.id).order('created_at DESC')
     ids = User.where.not(id: current_user.following.ids).where.not(id: current_user.id).pluck(:id).shuffle[0..5]
     @users = User.where(id: ids)
   end
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:body)
+    params.require(:post).permit(:body, :picture)
   end
 
   def find_post

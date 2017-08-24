@@ -17,10 +17,19 @@
     = render 'posts/form' 
     - @posts.each do |post|
       .col-xs-12
-        .text-center
-          %h6= post.created_at.strftime('%b %d, %Y')
-        %div
-          = raw(post.body)
+        .users-profile-pic-con
+          = image_tag(post.user.picture.url, class: 'users-profile-pic') if post.user.picture?
+        %span
+          .diggles-user-data
+            %b
+              = post.user.full_name
+            = '@' + post.user.username
+            %span &bull;
+            = to_pretty(post.created_at)
+        .post-con
+          = image_tag(post.picture.url, class: 'post-picture') if post.picture?
+          .post-text-only
+            = raw(post.body)
   .col-sm-4.col-xs-12.users-follow-con
     - @users.each do |user|
       = render 'relationships/follow', user: user

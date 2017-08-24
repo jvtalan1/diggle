@@ -1,4 +1,4 @@
-= simple_form_for @post do |f|
+= simple_form_for(@post, html: { multipart: true }) do |f|
   - if @post.errors.any?
     #error-explanation
       %h2
@@ -8,5 +8,5 @@
           %li= msg
   .form-group
     = f.input :body, as: :text, input_html: { placeholder: 'Share your diggle' }, label: false, class: "form-control"
-  .form-group
+    = f.file_field :picture
     = f.button :submit, 'Share'
