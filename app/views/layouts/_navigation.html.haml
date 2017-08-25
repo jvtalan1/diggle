@@ -1,12 +1,32 @@
 %nav.navbar.navbar-expand-lg.navbar-light.fixed-top#main-nav
-  .container
-    .collapse.navbar-collapse#navbar-responsive.navbar-items-con
+  .container.navbar-container
+    .collapse.navbar-collapse.navbar-items-con
       %ul.navbar-nav
         %li.nav-item
-          = link_to 'Home', posts_path, class: 'nav-link nav-link-home'
-          = link_to 'About', 'pages/about', class: 'nav-link'
-        - if user_signed_in?
-          %li.nav-item
-            = link_to 'Update Profile', edit_user_registration_path, class: 'nav-link'
-          %li.nav-item
-            = link_to 'Logout', destroy_user_session_path, class: 'nav-link', method: :delete
+          = link_to posts_path, class: 'nav-link' do
+            %i{class: 'ionicons ion-android-home icon-nav'}
+            Home
+          - if user_signed_in?
+            = link_to '#', class: 'nav-link' do
+              %i{class: 'ionicons ion-android-notifications icon-nav'}
+              Notifications
+          - else
+            = link_to 'About', 'pages/about', class: 'nav-link'
+    .collapse.navbar-collapse.navbar-items-user
+      - if user_signed_in?
+        .dropdown
+          %button.btn.dropdown-toggle.user-dropdown{'type' => 'button', 'data-toggle' => 'dropdown'}
+            %span{class: 'ionicons'} &#xf3a0;
+          %ul.dropdown-menu
+            %li
+              = link_to edit_user_registration_path, class: 'nav-link' do
+                %i{class: 'ionicons ion-android-person'}
+                Update Profile
+            %li
+              = link_to '#' do
+                %i{class: 'ionicons ion-ios-list-outline'}
+                Account Settings
+            %li
+              = link_to destroy_user_session_path, class: 'nav-link', method: :delete do
+                %i{class: 'ionicons ion-log-out'}
+                Logout
