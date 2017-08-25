@@ -1,0 +1,14 @@
+.col-xs-12
+  .users-profile-pic-con
+    = image_tag(post.user.picture.url, class: 'users-profile-pic') if post.user.picture?
+  %span
+    .diggles-user-data
+      %b
+        = link_to post.user.full_name, 'pages/profile', user: post.user
+      = '@' + post.user.username
+      %span &bull;
+      = to_pretty(post.created_at)
+  .post-con
+    = image_tag(post.picture.url, class: 'post-picture') if post.picture?
+    .post-text-only
+      = raw(post.body)

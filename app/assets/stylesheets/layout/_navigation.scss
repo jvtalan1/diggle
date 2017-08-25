@@ -1,12 +1,16 @@
 #main-nav {
-  color: #eee;
+  height: 80px;
+  color: white;
   font-weight: 700;
   text-transform: uppercase;
   border: none;
-  background: #1b6685;
+  background: $dark-blue;
   border-radius: 0;
   a:focus {
     outline: none;
+  }
+  .navbar-items-con {
+    vertical-align: middle;
   }
   .navbar-nav {
     float: right;
@@ -24,6 +28,12 @@
         &:focus {
           color: white;
         }
+      }
+    }
+    .nav-link-home {
+      &:before {
+        content: '\f38f \00a0';
+        font-family: 'ionicons';
       }
     }
   }
