@@ -1,35 +1,43 @@
 .container
-  .col-sm-2.col-xs-2
-    .user-profile-pic
-      = image_tag(current_user.picture.url, alt: 'Profile Pic') if current_user.picture?
-    .user-name.text-center
-      = current_user.full_name
-      %br
-      = current_user.username
-    .user-statistics
-      %h6 Followers
-      = @followers
-      %h6 Following
-      = @following
-      %h6 Diggles
-      = @posts_count
-  .col-sm-5.col-xs-6.content
-    = render 'posts/form' 
-    - @posts.each do |post|
-      .col-xs-12
-        .users-profile-pic-con
-          = image_tag(post.user.picture.url, class: 'users-profile-pic') if post.user.picture?
-        %span
-          .diggles-user-data
-            %b
-              = post.user.full_name
-            = '@' + post.user.username
-            %span &bull;
-            = to_pretty(post.created_at)
-        .post-con
-          = image_tag(post.picture.url, class: 'post-picture') if post.picture?
-          .post-text-only
-            = raw(post.body)
-  .col-sm-4.col-xs-12.users-follow-con
-    - @users.each do |user|
-      = render 'relationships/follow', user: user
+  .col-sm-3.col-xs-2
+    .content-wrapper
+      .user-profile
+        .user-profile-pic
+          = image_tag(current_user.picture.url, alt: 'Profile Pic') if current_user.picture?
+        .user-name.text-center
+          = current_user.full_name
+          %br
+          = current_user.username
+        .user-stats-con
+          .user-stats
+            %h5.stat-label Followers
+            %h4.stat= @followers
+          .user-stats
+            %h5.stat-label Following
+            %h4.stat= @following
+          .user-stats
+            %h5.stat-label Diggles
+            %h4.stat= @posts_count
+  .col-sm-6.col-xs-6.content.diggles-stream
+    .content-wrapper
+      .form-container
+        = render 'posts/form'
+      - @posts.each do |post|
+        %div
+          .users-profile-pic-con
+            = image_tag(post.user.picture.url, class: 'users-profile-pic') if post.user.picture?
+          %span
+            .diggles-user-data
+              %b
+                = post.user.full_name
+              = '@' + post.user.username
+              %span &bull;
+              = to_pretty(post.created_at)
+          .post-con
+            = image_tag(post.picture.url, class: 'post-picture') if post.picture?
+            .post-text-only
+              = raw(post.body)
+  .col-sm-3.col-xs-12.users-follow-con
+    .content-wrapper
+      - @users.each do |user|
+        = render 'relationships/follow', user: user

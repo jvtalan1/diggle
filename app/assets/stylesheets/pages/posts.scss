@@ -1,16 +1,26 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.user-profile-pic > img {
-  display: block;
-  margin: auto;
-  height: 100px;
-  width: 100px;
-  border-radius: 100%
-}
+.user-profile {
+  .user-profile-pic > img {
+    display: block;
+    margin: auto;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%
+  }
 
-.users-follow-con {
-  background-color: white;
+  .user-stats-con {
+    display: flex;
+    .user-stats {
+      flex: 1;
+      .stat-label,
+      .stat {
+        margin-left: 15px;
+      }
+      .stat {
+        color: $darker-blue;
+        font-weight: 700;
+      }
+    }
+  }
 }
 
 .users-profile-pic-con {
@@ -50,4 +60,36 @@
 .diggles-user-data {
   padding: 10px 5px;
   margin-left: 60px;
+}
+
+.content-wrapper {
+  background-color: white;
+  padding: 8px;
+}
+
+.form-container {
+  position: relative;
+  .upload-button {
+    background-color: $light-gray;
+  }
+  .diggle-file-form {
+    position: relative;
+    float: right;
+    top: -58px;
+    overflow: hidden;
+    margin-right: 12px;
+    width: 40px;
+    height: 32px;
+    &:hover {
+      background-color: $gray;
+      border: 1px solid $darker-gray;
+    }
+    input{
+      opacity: 0;
+      filter: alpha(opacity=0);
+      transform: translate(-300px, 0) scale(4);
+      direction: ltr;
+      cursor: pointer;
+    }
+  }
 }
