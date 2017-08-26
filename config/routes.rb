@@ -13,6 +13,6 @@ Rails.application.routes.draw do
 
   resources :posts, except: [:edit, :update]
   resources :relationships, only: [:create, :destroy]
-  get '/pages/:page' => 'pages#show'
+  resources :users, only: [:show]
 
 end

@@ -2,11 +2,13 @@
   .content-wrapper
     .user-profile
       .user-profile-pic
-        = image_tag(current_user.picture.url, alt: 'Profile Pic') if current_user.picture?
+        = image_tag(@user.picture.url, alt: 'Profile Pic') if @user.picture?
       .user-name.text-center
-        = current_user.full_name
+        = @user.full_name
         %br
-        = current_user.username
+        = @user.username
+        %p.join-date
+          = 'Joined ' + @user.created_at.strftime('%b %Y')
       .user-stats-con
         .user-stats
           %h5.stat-label Followers
@@ -18,13 +20,18 @@
         .user-stats
           %h5.stat-label Diggles
           %h4.stat= @posts_count
+      %div
+        %h5
+          = @users_followed_count.to_s + ' follower'.pluralize(@users_followed_count) + ' you know'
+        %div
+          - @users_followed.each do |user|
+            = image_tag(user.picture.url) if user.picture?
 .col-sm-6.col-xs-6.content.diggles-stream
   .content-wrapper
-    .form-container
-      = render 'posts/form'
     - @posts.each do |post|
       = render 'posts/post', post: post
 .col-sm-3.col-xs-12.users-follow-con
   .content-wrapper
-    - @users.each do |user|
+    %h4 Who to follow
+    - @users_to_follow.each do |user|
       = render 'relationships/follow', user: user
