@@ -22,8 +22,8 @@
   .content-wrapper
     .form-container
       = render 'posts/form'
-    - @posts.each do |post|
-      = render 'posts/post', post: post
+    #posts
+      = render 'posts/post', posts: @posts
 .col-sm-3.col-xs-12.users-follow-con
   .content-wrapper
     - @users.each do |user|

@@ -13,12 +13,16 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    if @post.save
-      flash[:notice] = "Post was successfully created."
-      redirect_to posts_path
-    else
-      flash[:alert] = "There was an error creating new post."
-      redirect_to posts_path
+
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to posts_url }
+        format.js { }
+        format.json { render :index, status: :created, location: @post }
+      else
+        format.html { redirect_to posts_url }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
 
