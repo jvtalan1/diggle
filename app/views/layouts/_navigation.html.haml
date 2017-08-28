@@ -3,15 +3,17 @@
     .collapse.navbar-collapse.navbar-items-con
       %ul.navbar-nav
         %li.nav-item
-          = link_to posts_path, class: 'nav-link' do
+          = link_to authenticated_root_path, class: 'nav-link' do
             %i{class: 'ionicons ion-android-home icon-nav'}
-            Home
+            %span Home
           - if user_signed_in?
             = link_to '#', class: 'nav-link' do
               %i{class: 'ionicons ion-android-notifications icon-nav'}
-              Notifications
+              %span Notifications
           - else
-            = link_to 'About', 'pages/about', class: 'nav-link'
+            = link_to page_path('about'), class: 'nav-link' do
+              %i{class: 'ionicons ion-ios-information icon-nav'}
+              %span About
     .collapse.navbar-collapse.navbar-items-user
       - if user_signed_in?
         .dropdown

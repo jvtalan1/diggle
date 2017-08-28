@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   resources :posts, except: [:index, :edit, :update]
   resources :relationships, only: [:create, :destroy]
   resources :users, only: [:show, :edit]
-  get "/pages/:page" => "pages#show"
+  get "/pages/:page", to: "pages#show", as: :page
 
 end
