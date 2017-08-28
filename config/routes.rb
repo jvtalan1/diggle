@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "registrations", confirmations: "confirmations" }
 
   devise_scope :user do
     authenticated :user do
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :posts, except: [:index, :edit, :update]
   resources :relationships, only: [:create, :destroy]
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit]
   get "/pages/:page" => "pages#show"
 
 end
