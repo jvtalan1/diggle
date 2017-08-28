@@ -22,9 +22,11 @@
   .content-wrapper
     .form-container
       = render 'posts/form'
-    #posts
       = render 'posts/post', posts: @posts
 .col-sm-3.col-xs-12.users-follow-con
   .content-wrapper
-    - @users.each do |user|
-      = render 'relationships/follow', user: user
+    .who-to-follow
+      %span
+        %h4 
+          %b Who to follow
+      = render 'relationships/follow', users: @users
