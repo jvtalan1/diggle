@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     authenticated :user do
       root "home#index", as: :authenticated_root
+      match "/profile", to: "registrations#profile", as: :profile_registration, via: [:get, :post]
     end
 
     unauthenticated do
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :posts, except: [:index, :edit, :update]
   resources :relationships, only: [:create, :destroy]
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:show]
   get "/pages/:page", to: "pages#show", as: :page
 
 end
