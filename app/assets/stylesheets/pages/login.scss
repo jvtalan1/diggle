@@ -1,0 +1,32 @@
+@import '../accessories.scss';
+
+.login-con, .signup-con {
+  background-color: white;
+  border-radius: 3px;
+  position: relative;
+  input[type=text], input[type=email], input[type=password] {
+    color: $text-color;
+  }
+}
+
+.login-con {
+  padding: 15px 10px 5px;
+  .login-button {
+    float: right;
+    transform: translateY(-20px);
+    -webkit-transform: translateY(-20px);
+  }
+  .forgot-password > a {
+    font-size: 12px;
+  }
+}
+
+.signup-con {
+  padding: 5px 10px 10px;
+  transform: translateY(15px);
+  min-height: 95px;
+}
+
+.login-masthead {
+  background-color: transparent;
+}

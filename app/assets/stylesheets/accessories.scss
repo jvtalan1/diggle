@@ -1,0 +1,32 @@
+.btn-round {
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 10px;
+  border-radius: 15px;
+  background-color: white;
+  color: $blue;
+  border: 1px solid $blue;
+  &:hover {
+    background-color: $light-twitter-blue;
+    color: $blue;
+    border: 1px solid $blue;
+  }
+}
+
+.btn-round-lg {
+  width: 160px;
+  height: 35px;
+  text-align: center;
+  font-size: 15px;
+  float: right;
+  border-radius: 17px;
+  background-color: $blue;
+  border: none;
+  &:hover {
+    background-color: $hover-blue;
+  }
+}
