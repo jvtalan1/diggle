@@ -33,13 +33,14 @@ user.save!
 50.times do |x|
   name = Faker::Name.name
   domain = Faker::Internet.domain_name
+  picture = 'public/uploads/avatars/' + rand(13).to_s + '.jpg'
   user = User.new(
     user_profile_attributes: {
       full_name: name,
       username: name.gsub(/\s+/, '').downcase + x.to_s,
       phone_number: '0999-99999' + x.to_s,
       location: Faker::Address.country,
-      picture: File.open(File.join(Rails.root, 'app/assets/images/default_profile.png'))},
+      picture: File.open(File.join(Rails.root, picture))},
     email: name.gsub(/\s+/, '').downcase + x.to_s + '@' + domain,
     password: 'password'
   )
@@ -51,7 +52,7 @@ end
 users = User.all
 users.each do |user|
   Post.create!(
-    body: Faker::LeagueOfLegends.quote,
+    body: Faker::HarryPotter.quote.truncate(160),
     user_id: user.id
   )
 end
