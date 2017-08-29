@@ -9,40 +9,49 @@
 User.delete_all
 Post.delete_all
 Relationship.delete_all
+UserProfile.delete_all
 
 ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = 'users'")
 ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = 'posts'")
 ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = 'relationships'")
+ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = 'user_profiles'")
 
-User.create!(
-  full_name: 'User Example',
-  username: 'userexample',
-  phone_number: '0999-999990',
-  location: 'Philippines',
+user = User.new(
+  user_profile_attributes: {
+    full_name: 'User Example',
+    username: 'userexample',
+    phone_number: '0999-999990',
+    location: 'Philippines',
+    picture: File.open(File.join(Rails.root, 'app/assets/images/default_profile.png'))},
   email: 'user@example.com',
   password: 'password',
-  picture: File.open(File.join(Rails.root, 'app/assets/images/default_profile.png'))
+  confirmed_at: Time.now
 )
+user.skip_confirmation!
+user.save!
 
-20.times do |x|
-  name = Faker::HarryPotter.character
+50.times do |x|
+  name = Faker::Name.name
   domain = Faker::Internet.domain_name
-  User.create!(
-    full_name: name,
-    username: name.gsub(/\s+/, '').downcase + x.to_s,
-    phone_number: '0999-99999' + x.to_s,
-    location: Faker::Address.country,
+  user = User.new(
+    user_profile_attributes: {
+      full_name: name,
+      username: name.gsub(/\s+/, '').downcase + x.to_s,
+      phone_number: '0999-99999' + x.to_s,
+      location: Faker::Address.country,
+      picture: File.open(File.join(Rails.root, 'app/assets/images/default_profile.png'))},
     email: name.gsub(/\s+/, '').downcase + x.to_s + '@' + domain,
-    password: 'password',
-    picture: File.open(File.join(Rails.root, 'app/assets/images/default_profile.png'))
+    password: 'password'
   )
   x = x + 1
+  user.skip_confirmation!
+  user.save!
 end
 
 users = User.all
 users.each do |user|
   Post.create!(
-    body: Faker::HarryPotter.quote,
+    body: Faker::LeagueOfLegends.quote,
     user_id: user.id
   )
 end
