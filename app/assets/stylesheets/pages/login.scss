@@ -30,3 +30,27 @@
 .login-masthead {
   background-color: transparent;
 }
+
+.join {
+  font-weight: 700;
+}
+
+.register-con, .profile-edit-con {
+  background-color: white;
+  padding: 10px 70px 10px;
+  border-radius: 3px;
+  input[type=email], input[type=password], input[type=text] {
+    color: $text-color;
+    height: 45px;
+    font-weight: 700;
+    font-size: 17px;
+  }
+  .signup-forms {
+    margin-top: 20px;
+  }
+  .terms {
+    margin-top: 4px;
+    font-size: 0.9em;
+    color: $text-light;
+  }
+}
