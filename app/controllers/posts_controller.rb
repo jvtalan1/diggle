@@ -11,6 +11,9 @@ class PostsController < ApplicationController
         format.html { redirect_to authenticated_root_url }
         format.js { }
         format.json { render :index, status: :created, location: @post }
+
+        @posts = Post.all
+        ActionCable.server.broadcast 'posts', html: render_to_string('home/index', layout: false)
       else
         format.html { redirect_to authenticated_root_url }
         format.json { render json: @post.errors, status: :unprocessable_entity }
