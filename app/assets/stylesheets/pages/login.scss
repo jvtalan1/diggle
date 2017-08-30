@@ -1,10 +1,10 @@
 @import '../accessories.scss';
 
-.login-con, .signup-con {
+.login-con, .signup-con, .update-profile-con, .register-con {
   background-color: white;
   border-radius: 3px;
   position: relative;
-  input[type=text], input[type=email], input[type=password] {
+  input[type=text], input[type=email], input[type=password], input[type=tel] {
     color: $text-color;
   }
 }
@@ -35,15 +35,26 @@
   font-weight: 700;
 }
 
-.register-con, .profile-edit-con {
-  background-color: white;
+.register-con {
   padding: 10px 70px 10px;
-  border-radius: 3px;
-  input[type=email], input[type=password], input[type=text] {
-    color: $text-color;
+}
+
+.update-profile-con {
+  margin-top: 20px;
+  padding: 10px 30px 20px;
+  .link-helpers {
+    margin-top: 10px;
+  }
+}
+
+.register-con, .update-profile-con {
+  input[type=email], input[type=password], input[type=text], input[type=tel] {
     height: 45px;
     font-weight: 700;
     font-size: 17px;
+  }
+  .help-block {
+    font-size: 0.8em;
   }
   .signup-forms {
     margin-top: 20px;
@@ -52,5 +63,28 @@
     margin-top: 4px;
     font-size: 0.9em;
     color: $text-light;
+  }
+}
+
+.masthead {
+  background-color: beige;
+  width: 100%;
+  height: 193px;
+  position: absolute;
+  top: 80px;
+  z-index: -1;
+  left: 0px;
+}
+
+.profile-edit-img-con {
+  top: 2px;
+  position: relative;
+  > img {
+    display: block;
+    margin: auto;
+    border-radius: 100%;
+    border: 6px solid white;
+    height: 206px;
+    width: 206px;
   }
 }
