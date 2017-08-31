@@ -1,16 +1,14 @@
-#posts
-  - posts.each do |post|
-    %div
-      .users-profile-pic-con
-        = image_tag(post.user.user_profile.picture.url, class: 'users-profile-pic') if post.user.user_profile.picture?
-      %span
-        .diggles-user-data
-          %b
-            = link_to post.user.user_profile.full_name, user_path(post.user)
-          = '@' + post.user.user_profile.username
-          %span &bull;
-          = to_pretty(post.created_at)
-      .post-con
-        = image_tag(post.picture.url, class: 'post-picture') if post.picture?
-        .post-text-only
-          = raw(post.body)
+.post-container{id: "post-#{post.id}"}
+  .users-profile-pic-con
+    = image_tag(post.user.user_profile.picture.url, class: 'users-profile-pic') if post.user.user_profile.picture?
+  %span
+    .diggles-user-data
+      %b
+        = link_to post.user.user_profile.full_name, user_path(post.user)
+      = '@' + post.user.user_profile.username
+      %span &bull;
+      = to_pretty(post.created_at)
+  .post-con
+    = image_tag(post.picture.url, class: 'post-picture') if post.picture?
+    .post-text-only
+      = raw(post.body)

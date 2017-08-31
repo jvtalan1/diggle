@@ -22,7 +22,8 @@
   .content-wrapper
     .form-container
       = render 'posts/form'
-      = render 'posts/post', posts: @posts
+    #feed
+      = render(@posts) || 'No Diggles'
 .col-sm-3.col-xs-12.users-follow-con
   .content-wrapper
     .who-to-follow

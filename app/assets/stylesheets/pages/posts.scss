@@ -43,23 +43,31 @@
   display: inline-block;
 }
 
-.post-con {
-  padding-left: 60px;
-  width: 100%;
-
-  > .post-text-only {
-    margin: 5px;
+.post-container {
+  padding: 10px;
+  border-bottom: 1px solid $light-gray;
+  &:hover {
+    background-color: $light-gray;
+    cursor: pointer;
   }
-}
 
-.post-picture {
-  height: 100%;
-  width: 100%;
-}
+  .post-picture {
+    height: 100%;
+    width: 100%;
+  }
 
-.diggles-user-data {
-  padding: 10px 5px;
-  margin-left: 60px;
+  .diggles-user-data {
+    padding: 5px;
+    margin-left: 60px;
+  }
+
+  .post-con {
+    padding-left: 60px;
+    width: 100%;
+    > .post-text-only {
+      margin: 5px;
+    }
+  }
 }
 
 .content-wrapper {
@@ -67,10 +75,20 @@
   padding: 8px;
 }
 
+.diggles-stream {
+  .content-wrapper { padding: 0; }
+}
+
 .form-container {
+  padding: 10px;
   position: relative;
-  .upload-button {
-    background-color: $light-gray;
+  background-color: $light-twitter-blue;
+  .upload-button > i {
+    color: $twitter-blue;
+    font-size: 22px;
+  }
+  > .text {
+    border: 1px solid $twitter-blue;
   }
   .diggle-file-form {
     position: relative;
@@ -80,10 +98,6 @@
     margin-right: 12px;
     width: 40px;
     height: 32px;
-    &:hover {
-      background-color: $gray;
-      border: 1px solid $darker-gray;
-    }
     input{
       opacity: 0;
       filter: alpha(opacity=0);
