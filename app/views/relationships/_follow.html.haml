@@ -1,12 +1,13 @@
-- users.each do |user|
-  = form_for(current_user.active_relationships.build, remote: true) do |f|
-    .follow-boxes
-      .users-profile-pic-con
-        = image_tag(user.user_profile.picture.url, class: 'users-profile-pic',  alt: 'Profile Pic') if user.user_profile.picture?
-      .name-span
-        %span
-          %b
-            = link_to user.user_profile.full_name, user_path(user)
-          = '@' + user.user_profile.username
-      %div= hidden_field_tag :followed_id, user.id
-      = f.submit "Follow", class: "btn btn-round"
+#follow-users
+  - users.each do |user|
+    = form_for(current_user.active_relationships.build, remote: true) do |f|
+      .follow-boxes
+        .users-profile-pic-con
+          = image_tag(user.user_profile.picture.url, class: 'users-profile-pic',  alt: 'Profile Pic') if user.user_profile.picture?
+        .name-span
+          %span
+            %b
+              = link_to user.user_profile.full_name, user_path(user)
+            = '@' + user.user_profile.username
+        %div= hidden_field_tag :followed_id, user.id
+        = f.submit "Follow", class: "btn btn-round"
