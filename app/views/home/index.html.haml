@@ -1,23 +1,25 @@
-.col-sm-3.col-xs-2
+.col-sm-3.col-xs-2.user
   .content-wrapper
+    .masthead
     .user-profile
       .user-profile-pic
         = image_tag(current_user.user_profile.picture.url, alt: 'Profile Pic') if current_user.user_profile.picture?
       .user-name.text-center
-        = current_user.user_profile.full_name
-        %br
-        = current_user.user_profile.username
+        %h4.name= link_to current_user.user_profile.full_name, user_path(current_user)
+        %h5.username= link_to current_user.user_profile.username, user_path(current_user)
       .user-stats-con
         .user-stats
           %h5.stat-label Followers
-          %h4.stat= @followers
+          %h4.stat
+            = link_to @followers, user_path(current_user), id: 'user-diggle-link'
         .user-stats
           %h5.stat-label Following
           %h4.stat
-            = link_to @following, '#'
+            = link_to @following, user_path(current_user), id: 'user-following-link'
         .user-stats
           %h5.stat-label Diggles
-          %h4.stat= @posts_count
+          %h4.stat
+            = link_to @posts_count, user_path(current_user), id: 'user-followers-link'
 .col-sm-6.col-xs-6.content.diggles-stream
   .content-wrapper
     .form-container

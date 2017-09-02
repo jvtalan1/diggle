@@ -41,3 +41,17 @@
     background-color: $blue;
   }
 }
+
+.username {
+  color: $text-light;
+  &:before {
+    content: '@';
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.timestamp {
+  color:$text-light;
+}

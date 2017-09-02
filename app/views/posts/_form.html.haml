@@ -7,7 +7,7 @@
         - @post.errors.full_messages.each do |msg|
           %li= msg
   .form-group.diggle-form
-    = f.input :body, as: :text, input_html: { placeholder: 'Share your diggle' }, label: false, class: "form-control diggle-text-form"
+    = f.text_field :body, placeholder: 'Share your diggle', label: false, class: "form-control diggle-text-form"
     %span.btn.upload-button.diggle-file-form{title: 'Upload Picture'}
       %i.ionicons.ion-image
       = f.file_field :picture
