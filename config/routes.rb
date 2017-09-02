@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     authenticated :user do
       root "home#index", as: :authenticated_root
-      match "/profile", to: "registrations#profile", as: :profile_registration, via: [:get, :post]
+      match "/profile/edit", to: "registrations#profile", as: :edit_profile, via: [:get, :post]
       match "/refresh_users", to: "home#refresh_users", as: :refresh_users, via: [:get]
     end
 
