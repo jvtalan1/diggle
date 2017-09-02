@@ -27,7 +27,10 @@
 .col-sm-3.col-xs-12.users-follow-con
   .content-wrapper
     .who-to-follow
-      %span
+      %span.follow-users-head
         %h4 
           %b Who to follow
+        &bull;
+        = link_to 'Refresh', '#', id: 'refresh-users', remote: true
+    #follow-users-con
       = render 'relationships/follow', users: @users

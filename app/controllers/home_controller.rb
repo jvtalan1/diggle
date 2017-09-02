@@ -8,6 +8,11 @@ class HomeController < ApplicationController
   def index
     @post = Post.new
   end
+
+  def refresh_users
+    fetch_unconnected_users
+    render partial: 'relationships/follow', locals: {users: @users}
+  end
   
   private
 
