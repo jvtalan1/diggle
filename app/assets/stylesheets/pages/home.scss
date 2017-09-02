@@ -1,9 +1,53 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .diggle-form {
   textarea {
     color: $text-color;
+  }
+}
+
+.users-profile-pic-con,
+.users-profile-pic {
+  height: 60px;
+  width: 60px;
+}
+
+.users-profile-pic {
+  border-radius: 100%;
+}
+
+.who-to-follow {
+  padding: 15px 7px;
+  .follow-users-head {
+    > h4 {
+      display: inline;
+    }
+  }
+}
+
+#follow-users-con {
+  .follow-boxes {
+    width: 100%;
+    height: 80px;
+    display: flex;
+  }
+  .follow {
+    border-bottom: 1px solid $light-gray;
+    padding: 7px 0px;
+    height: 80px;
+    &:last-child {
+      border-bottom: none;
+    }
+    .users-profile-pic-con {
+      flex: 1;
+    }
+    .users-profile-content {
+      flex: auto;
+      margin-left: 5px;
+      overflow: hidden;
+      .name-span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
   }
 }

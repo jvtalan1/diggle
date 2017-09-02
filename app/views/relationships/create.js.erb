@@ -1,1 +1,2 @@
-$('#follow-users').remove('<%= user %>');
+$("div.follow").remove("#follow-<%= @user.id %>");
+$("#follow-users-con").append("<%= j render partial: 'relationships/follow', locals: { users: @next_user } %>");

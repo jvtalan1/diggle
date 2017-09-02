@@ -23,32 +23,16 @@
   }
 }
 
-.users-profile-pic-con {
-  float: left;
-}
-
-.users-profile-pic-con,
-.users-profile-pic {
-  height: 60px;
-  width: 60px;
-}
-
-.users-profile-pic {
-  border-radius: 100%;
-}
-
-.follow-boxes {
-  width: 100%;
-  height: 80px;
-  display: inline-block;
-}
-
 .post-container {
   padding: 10px;
   border-bottom: 1px solid $light-gray;
   &:hover {
     background-color: $light-gray;
     cursor: pointer;
+  }
+
+  .users-profile-pic-con {
+    float: left;
   }
 
   .post-picture {
@@ -106,10 +90,4 @@
       cursor: pointer;
     }
   }
-}
-
-.name-span {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
