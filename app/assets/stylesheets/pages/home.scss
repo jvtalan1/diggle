@@ -1,6 +1,45 @@
+.user,
+.content,
+.users-follow-con {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
+.user-profile {
+  .user-profile-pic > img {
+    display: block;
+    margin: auto;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%
+  }
+
+  .user-stats-con {
+    display: flex;
+    .user-stats {
+      flex: 1;
+      .stat-label {
+        color: $text-light;
+        font-size: 13px;
+      }
+      .stat-label,
+      .stat {
+        font-weight: bolder;
+        margin: 3px 0 3px 15px;
+      }
+      .stat {
+        color: $darker-blue;
+      }
+    }
+  }
+}
+
 .diggle-form {
-  textarea {
+  input[type=text] {
     color: $text-color;
+  }
+  input[type=submit] {
+    display: none;
   }
 }
 
@@ -12,6 +51,32 @@
 
 .users-profile-pic {
   border-radius: 100%;
+}
+
+.user {
+  .content-wrapper {
+    height: 250px;
+    padding: 0;
+  }
+  .masthead {
+    background-color: $twitter-blue;
+    height: 80px;
+    position: relative;
+    top: 0;
+    z-index: 1;
+  }
+  .user-profile {
+    position: relative;
+    top: -45px;
+    z-index: 2;
+  }
+  .name > a {
+    color: $text-color;
+    font-weight: bolder;
+  }
+  .username > a {
+    color: $text-light;
+  }
 }
 
 .who-to-follow {
@@ -47,6 +112,14 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        .name,
+        .username {
+          display: inline;
+        }
+        .name > a {
+          color: $text-color;
+          font-weight: bolder;
+        }
       }
     }
   }
