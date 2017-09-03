@@ -7,10 +7,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    = flash_messages
     = render "layouts/navigation"
     .container
-      %p.notice
-        = notice
-      %p.alert
-        = alert
       = yield
