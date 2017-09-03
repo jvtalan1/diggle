@@ -32,3 +32,5 @@
               = link_to destroy_user_session_path, class: 'nav-link', method: :delete do
                 %i{class: 'ionicons ion-log-out'}
                 Logout
+          = link_to 'New Diggle', new_post_path, {"class" => "btn btn-primary btn-round-lg", "remote" => "true", "data-toggle" => "modal", "data-target" => "#modal-window"}
+#modal-window.modal.fade{"role" => "dialog", "aria-labelledby" => "diggleModal", "aria-hidden" => "true"}

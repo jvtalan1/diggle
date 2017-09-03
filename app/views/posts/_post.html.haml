@@ -8,6 +8,7 @@
       %span &bull;
       %h5.timestamp= to_pretty(post.created_at)
   .post-con
-    = image_tag(post.picture.url, class: 'post-picture') if post.picture?
     .post-text-only
       = raw(post.body)
+    = image_tag(post.picture.url, class: 'post-picture') if post.picture?
+    = link_to 'Show', post_path(post), {"class" => "show", "remote" => "true", "data-toggle" => "modal", "data-target" => "#modal-window"}

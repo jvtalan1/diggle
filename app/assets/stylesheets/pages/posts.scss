@@ -10,11 +10,6 @@
     float: left;
   }
 
-  .post-picture {
-    height: 100%;
-    width: 100%;
-  }
-
   .diggles-user-data {
     padding: 5px;
     margin-left: 60px;
@@ -34,9 +29,16 @@
     width: 100%;
     > .post-text-only {
       margin: 5px;
+      word-wrap: break-word;
     }
   }
 }
+
+.post-picture {
+  height: 100%;
+  width: 100%;
+}
+
 
 .content-wrapper {
   background-color: white;

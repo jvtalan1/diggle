@@ -1,0 +1,86 @@
+.modal-container {
+  width: 590px;
+  margin: auto;
+  background-color: white;
+  position: relative;
+  top: 20%;
+  border-radius: 4px;
+  .modal-header {
+    height: 66px;
+    border-bottom: 0.8px solid $blue-border;
+    > h4 { font-weight: bolder; }
+  }
+  .modal-body {
+    background-color: $light-twitter-blue;
+    border-radius: 0 0 4px 4px;
+    textarea {
+      color: $text-color;
+      border: 0.8px solid $blue-border;
+      min-height: 85px;
+    }
+    .diggle-file-form {
+      margin-right: 2px;
+      width: 49px;
+      height: 20px;
+      > i {
+        font-size: 25px;
+        color: $twitter-blue;
+        font-weight: bolder;
+      }
+      input[type=file] {
+        opacity: 0;
+        filter: alpha(opacity=0);
+        cursor: pointer;
+        position: relative;
+        top: -20px;
+      }
+    }
+    input[type=submit] {
+      display: inline-block;
+      float: right;
+      margin-top: 9px;
+    }
+  }
+  .close { padding: 0 !important; }
+}
+
+.close {
+  padding: 14px !important;
+}
+
+.post-modal {
+  .modal-header {
+    padding-top: 5px !important;
+    height: 96px;
+    display: flex;
+    border: none;
+  }
+  .users-profile-pic-con { 
+    margin-top: 12px;
+    margin-left: 18px;
+  }
+  .modal-user {
+    margin-left: 10px;
+    .modal-fullname {
+      font-size: 1.4em;
+      font-weight: bolder;
+    }
+  }
+  .modal-user {
+    padding-top: 5px;
+  }
+  .modal-body {
+    padding-top: 0 !important;
+    background-color: white;
+    .post-text-only {
+      font-size: 2em;
+      padding-left: 18px;
+      padding-right: 18px;
+      word-wrap: break-word;
+    }
+    .time {
+      margin-left: 18px;
+      color: $text-light;
+    }
+  }
+}

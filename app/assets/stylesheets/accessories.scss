@@ -16,11 +16,29 @@
   }
 }
 
+.btn-round-solid {
+  width: 80px;
+  height: 32px;
+  text-align: center;
+  line-height: 5px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 17px;
+  background-color: $blue;
+  color: white;
+  border: none;
+  &:hover {
+    background-color: $hover-blue;
+    color: white;
+  }
+}
+
 .btn-round-lg {
   width: 160px;
   height: 35px;
   text-align: center;
   font-size: 15px;
+  font-weight: bolder;
   float: right;
   border-radius: 17px;
   background-color: $blue;
