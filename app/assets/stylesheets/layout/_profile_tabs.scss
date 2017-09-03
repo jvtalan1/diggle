@@ -1,0 +1,34 @@
+.profile-nav-tabs {
+  background-color: white;
+  .profile-tab {
+    height: 52px;
+    font-size: 12px;
+  }
+  .tab-stat {
+    font-weight: 700;
+    color: $text-light;
+    position: relative;
+    top: -35px;
+  }
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  border: 0;
+  border-radius: 0;
+  border-bottom: 3px solid $twitter-blue;
+  background-color: white;
+  font-weight: bolder;
+  color: $text-light;
+}
+
+.nav-tabs > li > a {
+  border-radius: 0;
+  font-weight: bolder;
+  color: $text-light;
+  &:hover {
+    background-color: white;
+    border-bottom: 3px solid $twitter-blue;
+  }
+}

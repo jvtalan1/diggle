@@ -1,0 +1,33 @@
+%ul.nav.nav-tabs.profile-nav-tabs
+  %li.active.profile-tab
+    %a{"data-toggle" => "tab", href: "#diggles", id: "user-diggle-tab", class: "profile-tab"} Diggles
+    %h4.text-center.tab-stat= @posts_count
+  %li.profile-tab
+    %a{"data-toggle" => "tab", href: "#following", id: "user-following-tab", class: "profile-tab"} Following
+    %h4.text-center.tab-stat= @following_count
+  %li.profile-tab
+    %a{"data-toggle" => "tab", href: "#followers", id: "user-followers-tab", class: "profile-tab"} Followers
+    %h4.text-center.tab-stat= @followers_count
+.tab-content
+  #diggles.tab-pane.fade.in.active
+    .col-sm-8.col-xs-8.content.profile-diggles-stream
+      .content-wrapper
+        #feed
+          = render(@posts) || 'No Diggles'
+    .col-sm-4.col-xs-4.profile-users-follow-con
+      .content-wrapper
+        .who-to-follow
+          %span.follow-users-head
+            %h4 
+              %b Who to follow
+            &bull;
+            = link_to 'Refresh', '#', id: 'refresh-users', remote: true
+          = render 'relationships/follow', users: @users_to_follow
+  #following.tab-pane.fade
+    .col-sm-12.profile-user-followers
+      .content-wrapper
+        = render 'relationships/follow', users: @following
+  #followers.tab-pane.fade
+    .profile-user-followers
+      .content-wrapper
+        = render 'relationships/follow', users: @followers

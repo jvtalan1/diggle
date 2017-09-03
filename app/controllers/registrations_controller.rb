@@ -4,7 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
   def profile
     @user = current_user
     if @user
-      render :profile
+      render 'users/profile/edit'
     else
       render file: 'public/404', status: 404, formats: [:html]
     end
@@ -16,7 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
       params[:user].delete(:password_confirmation)
     end
     unless @user.update(params[:user].permit(:email, :password, :password_confirmation, user_profile_attributes: [:username, :full_name, :phone_number, :location, :picture, :id]))
-      render :profile
+      render 'users/profile/edit'
       return
     end
     redirect_to authenticated_root_path
