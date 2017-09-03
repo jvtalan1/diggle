@@ -19,7 +19,8 @@ class RegistrationsController < Devise::RegistrationsController
       render 'users/profile/edit'
       return
     end
-    redirect_to authenticated_root_path
+    flash[:notice] = "Your profile has been successfully updated."
+    redirect_to user_path(current_user)
   end
 
   protected

@@ -73,3 +73,21 @@
 .timestamp {
   color:$text-light;
 }
+
+.flash-con {
+  background-color: white;
+  border-radius: 0 0 5px 5px;
+  width: 30%;
+  position: absolute;
+  z-index: 10;
+  left: 34%;
+  height: 60px;
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 14px;
+  .close {
+    position: relative;
+    top: -25px;
+    right: -18px;
+  }
+}
