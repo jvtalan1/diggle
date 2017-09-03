@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :fetch_user_posts
   before_action :fetch_user_followers
   before_action :fetch_user_following
+  before_action :fetch_user_stats
 
   def show
     render 'users/profile/show'
@@ -19,26 +20,30 @@ class UsersController < ApplicationController
   end
 
   def fetch_user_followers
-    @followers = @user.followers.count
-    @following = @user.following.count
-    @posts_count = @posts.count
+    @followers = @user.followers
 
-    @users_followed = []
-    @user.followers.each do |user|
+    @current_user_following = []
+    @followers.each do |user|
       if current_user.following?(user)
-        @users_followed << user
+        @current_user_following << user
       end
     end
-    @users_followed_count = @users_followed.count
   end
 
   def fetch_user_following
-    @users = @user.following
+    @following = @user.following
     @users_to_follow = []
-    @users.each do |user|
+    @following.each do |user|
       if !current_user.following?(user)
         @users_to_follow << user
       end
     end
+  end
+
+  def fetch_user_stats
+    @followers_count = @followers.count
+    @following_count = @following.count
+    @posts_count = @posts.count
+    @followers_following = @current_user_following.count
   end
 end

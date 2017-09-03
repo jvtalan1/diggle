@@ -1,0 +1,108 @@
+.profile-wrapper {
+  .user-profile-pic {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    top: -151px;
+    left: 33px;
+    background-color: white;
+    border-radius: 100%;
+    border: 7px solid $gray;
+    display: table-cell;
+    vertical-align: middle;
+    
+    .user-profile-img {
+      border-radius: 100%;
+    }
+  }
+  
+  .profile-content-con {
+    position: relative;
+    top: -134px;
+    
+    .profile-con {
+      padding-left: 5px !important;
+      padding-right: 5px !important;
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .follow {
+      width: 276px;
+      padding: 5px;
+      .users-profile-pic-con {
+        position: relative;
+        top: -29px;
+        margin-left: 10px;
+      }
+      form {
+        background-color: white;
+      }
+      .users-profile-content {
+        margin-left: 10px;
+        margin-right: 10px;
+        position: relative;
+        top: -32px;
+        .name > a {
+          color: $text-color;
+          font-weight: bolder;
+          font-size: 20px;
+          &:hover {
+            text-decoration: none;
+            border-bottom: 1px solid $text-color;
+          }
+        }
+      }
+    }
+  }
+  
+  .profile-diggles-stream {
+    padding: 0 !important;
+    .content-wrapper {
+      padding: 0;
+    }
+  }
+  
+  .profile-users-follow-con {
+    padding-right: 0;
+    padding-left: 5px;
+  }
+  
+  .profile-user-followers {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    background-color: $light-gray;
+    display: flex;
+    min-height: 100px;
+    .content-wrapper {
+      background-color: $light-gray;
+    }
+  }
+
+  .join-date {
+    font-size: 15px;
+    color: $text-light;
+    &:before {
+      content: '\f2d1';
+      font-family: 'ionicons';
+      font-size: 19px;
+    }
+  }
+  .followers-know {
+    font-size: 15px;
+    color: $text-light;
+    &:before {
+      content: '\f2d8';
+      font-family: 'ionicons';
+      font-size: 19px;
+    }
+  }
+
+  .users-masthead {
+    background-color: $twitter-blue;
+    height: 50px;
+  }
+}
