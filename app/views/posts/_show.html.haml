@@ -1,0 +1,13 @@
+%button.close{"type" => "button", "data-dismiss" => "modal", "aria-hidden" => "true"}x
+.modal-container.post-modal
+  .modal-header
+    .users-profile-pic-con
+      = image_tag(@post.user.user_profile.picture.url(:thumb), class: 'users-profile-pic') if @post.user.user_profile.picture?
+    .modal-user
+      %h4.modal-fullname= @post.user.user_profile.full_name
+      %h5.modal-username.username= @post.user.user_profile.username
+  .modal-body
+    .post-text-only
+      = raw @post.body
+    = image_tag(@post.picture.url, class: 'post-picture') if @post.picture?
+    %h5.time= @post.created_at.strftime('%l:%M %p - %-d %b %Y')

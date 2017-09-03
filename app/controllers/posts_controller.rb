@@ -2,6 +2,15 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_post, only: [:show, :delete]
 
+  def new
+    @post = Post.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   def create
     @post = Post.new(post_params)
     @post.user = current_user
