@@ -26,6 +26,8 @@
       = render 'posts/form'
     #feed
       = render(@posts) || 'No Diggles'
+    #load-more
+      = link_to_next_page @posts, 'Load more', class: 'next', remote: true
 .col-sm-3.col-xs-12.users-follow-con
   .content-wrapper
     .who-to-follow

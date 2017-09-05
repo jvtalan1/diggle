@@ -21,7 +21,7 @@ class HomeController < ApplicationController
   end
 
   def fetch_posts
-    @posts = Post.where(user_id: @following_ids).order('created_at DESC')
+    @posts = Post.where(user_id: @following_ids).order('created_at DESC').page(params[:page]).per(5)
   end
 
   def fetch_user_stats
