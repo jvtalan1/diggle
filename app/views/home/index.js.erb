@@ -1,1 +1,5 @@
-$('#feed').html('<%= j render @posts %>');
+$("#feed").append("<%= j render @posts %>");
+
+<% if @posts.last_page? %>
+  $("#load-more").hide();
+<% end %>
