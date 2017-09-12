@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An Open Source twitter clone app using Ruby on Rails.
 
-Things you may want to cover:
+## Getting started
 
-* Ruby version
+* Use Ruby version: 2.4.1
 
-* System dependencies
+## Installation
 
-* Configuration
+* Clone the repository
 
-* Database creation
+* bundle install
 
-* Database initialization
+* rails db:migrate
 
-* How to run the test suite
+* rails db:seed
 
-* Services (job queues, cache servers, search engines, etc.)
+## Running tests
 
-* Deployment instructions
-
-* ...
+* Run rspec
