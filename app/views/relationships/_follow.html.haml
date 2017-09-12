@@ -1,13 +1,28 @@
 - users.each do |user|
   .follow{id: "follow-#{user.id}"}
-    = form_for(current_user.active_relationships.build, remote: true) do |f|
-      .follow-boxes
-        .users-masthead
-        .users-profile-pic-con
-          = image_tag(user.user_profile.picture.url, class: 'users-profile-pic',  alt: 'Profile Pic') if user.user_profile.picture?
-        .users-profile-content
-          .name-span
-            %h5.name= link_to user.user_profile.full_name, user_path(user)
-            %h5.username= user.user_profile.username
-          %div= hidden_field_tag :followed_id, user.id
-          = f.submit "Follow", class: "btn btn-round"
+    - unless current_user.following?(user)
+      = form_for(current_user.active_relationships.build, remote: true) do |f|
+        .follow-boxes
+          .users-masthead
+          .users-profile-pic-con
+            = image_tag(user.user_profile.picture.url, class: 'users-profile-pic',  alt: 'Profile Pic') if user.user_profile.picture?
+          .users-profile-content
+            .name-span
+              %h5.name= link_to user.user_profile.full_name, user_path(user)
+              %h5.username= user.user_profile.username
+            %div= hidden_field_tag :followed_id, user.id
+            - unless user == current_user
+              = button_tag(type: 'submit', class: "btn btn-round") do
+                %span Follow
+    - else
+      = form_for(current_user.active_relationships.find_by(followed_id: user.id), html: {method: :delete}, remote: true) do |f|
+        .follow-boxes
+          .users-masthead
+          .users-profile-pic-con
+            = image_tag(user.user_profile.picture.url, class: 'users-profile-pic', alt: 'Profile Pic') if user.user_profile.picture?
+          .users-profile-content
+            .name-span
+              %h5.name= link_to user.user_profile.full_name, user_path(user)
+              %h5.username= user.user_profile.username
+            = button_tag(type: 'submit', class: "btn btn-round btn-unfollow") do
+              %span Following
